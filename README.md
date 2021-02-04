@@ -42,7 +42,9 @@ Contents
 
 1. 
 Program name: 
+
 	checkAutopick.py
+	
 Program summary: 
 	Program gives user information about picked micrographs according to the FOM (figure-of-merit) scores for pickied particles on that micrograph.
 Program input: 
