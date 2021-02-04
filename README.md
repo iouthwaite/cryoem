@@ -64,7 +64,9 @@ Program flags / options:
 
 2.
 Program name: 
+
 	renameMicrographs.py
+	
 Program summary:
 	Takes input of a folder, and renames all the files in that folder from _Stk.mrc to _stk.mrcs and _DW.mrc to .mrc
 	uses a prefix input from the user, adding on the number afterwards for each type automatically (ex: 000001, 000002)
@@ -80,7 +82,9 @@ Program flags / options:
 
 3.
 Program name: 
+
 	rename_autopick_as_manpick.py
+	
 Program summary: 
 	Takes input of a folder, and renames all the files in that folder from _autopick.star to _manualpick.star
 	uses a prefix input from the user, adding on the number afterwards for each type automatically (ex: 000001, 000002)
@@ -97,7 +101,9 @@ Program flags / options:
 
 4. 
 Program name: 
+
 	matchQueryToTarget.py
+	
 Program summary: 
 	Saves lines from first file that exist in second file (for a given column of data)
 	Takes input of two files, compares the content from column x in each line of the query file and column y in target files, and prints out (to a new file) the lines from the first (query) file that matched at least one in the second (target) file for those respective columns. Ex: matches column 2 from the lines in the query file with column 5 in the target file, and prints out the lines that matched from the query file into a new file.
@@ -118,7 +124,9 @@ Program flags / options:
 
 5. 
 Program name: 
+
 	matchQueryToTargetTwoFactor.py
+	
 Program summary: 
 	Saves lines from first file that exist in second file (for a given column of data). Useful for matching particles that have the same piece of information for one indentifier but are unique given that information for another indentifier - for example, particle may share the same x,y coordinates with particles picked from other micrographs, but they will not share the same x,y coordinate with particles from the same micrograph. This allows the user to find and match information from unique particles between two files.
 	Takes input of two files, compares the content from column x1,x2 in each line of the query file and column y1,y2 in target files, and prints out (to a new file) the lines from the first (query) file that matched at least one in the second (target) file for those respective columns. Ex: matches columns 2 and 3 from the lines in the query file with columns 5 and 6 (respectively, x1->y1 and x2->y2) in the target file, and prints out the lines that matched from the query file into a new file.
@@ -141,7 +149,9 @@ Program flags / options:
 
 6.
 Program name: 
+
 	starSwiper.py
+	
 Program summary: 
 	Finds the micrographs referred to in a star file using the "_rlnMicrographName" tag from the header
 	Program opens each micrograph, and following a user command and the ENTER key (''=good image, only enter key & no imput needed or 'p'=poor image) sorts the data referred to by the line in the star file to a new star file, '' = good data (no input, just hit enter), 'p' = bad data, q quits the selection and prints out the starfiles, or if you work down the entire list, the new starfiles are printed at the very end. Output: two star files of micrographs, one with the data for those deemed "good" by the user and the other with the data for those deemed "poor." Useful for sorting through micrographs manually after curating good micrographs by estimated Ctf value.
@@ -159,7 +169,9 @@ Program flags / options:
 
 7.
 Program name:
+
 	checkMicrographs.py
+	
 Program summary:
 	Creates a plot of the information from a .star file of micrographs after Ctf estimation. Includes a histogram of Ctf estimated max resolution, and a series of linear correlation plots between max res and a) FOM score, b) defocus angle and c) the RMS value for defocus U and V coordinates (aka the magnitude of the vector that describes the U and V coordinates).
 Program input:
@@ -173,7 +185,9 @@ Program flags / options:
 
 8. 
 Program Name: 
+
 	checkCtfRefine.py
+	
 Program Summary:
 	For CtfRefine output .star file, plots the number of particles per micrograph against the standard deviation of defocus values for those particles, from that single micrograph. Each point represents a micrograph.
 Program input:
@@ -187,7 +201,9 @@ Program flags / options:
 
 9.
 Program Name:
+
 	choseBestCtf.py
+	
 Program Summary:
 	For a group of CtfFind output files, returns one .star file with the maximum resolution Ctf values for a given micrograph. Useful for combining the results of multiple CtfFind runs conducted with different maximum resolution cutoffs (aka 3.5A, 4A and 5A as typical values)
 Program input:
@@ -201,7 +217,9 @@ Program flags / options:
 
 10.
 Program Name:
+
 	checkParticleAngles.py
+	
 Program Summary:
 	for refined particles file (.star, either from Refine3D or converted from a cryosparc refinment): prints plots of the three refinment angle distributions
 Program input:
@@ -215,7 +233,9 @@ Program flags / options:
 
 11.
 Program Name:
+
 	removeCtfDefocusOutliers.py
+	
 Program Summary:
 	For a CtfRefine "particles_ctf_refine.star" file: returns the "good" particles that are not deviant from statistical norms
 	User can enter the number of standard deviations away from the mean that they want to retain particles within, for the defocus values of a single micrograph
@@ -238,7 +258,9 @@ Program flags / options:
 
 12.
 Program Name:
+
 	removeEdgeParticles.py
+	
 Program Summary:
 	Removes particles picked near the edges of micrographs
 	Defaults (based upon 2x binning of super resolution micrographs, check the dimensions of your image files)
@@ -255,7 +277,9 @@ Program flags / options:
 
 13.
 Program Name:
+
 	motionSelection.py
+	
 Program Summary:
 	Now basically defunct, was useful to remove micrographs with lots of movement. Designed when processing was done not from .tif files, which makes this code obsolete. Particle polishing seems to fix the movement issue. Needs output logfile from motioncor processing.
 Program input:
@@ -269,7 +293,9 @@ Program flags / options:
 
 14.
 Program Name:
+
 	checkParticleDefocus.py
+	
 Program Summary:
 	Plots the number of particles per micrograph versus the average defocus value for particles from that micrograph. Also plots a histogram of the average micrograph defocus values (average of all particles from said micrograph). Useful to evaluate whether or not you have collected enough low-defocus information, and how many particles have been picked accross different defocus thresholds.
 Program input:
@@ -283,7 +309,9 @@ Program flags / options:
 
 15.
 Program Name:
+
 	restoreOriginalCtfs.py
+	
 Program Summary:
 	for a CtfRefine "particles_ctf_refine.star" file: returns the estimated defocus values to the original values from a .star file (a CtfFind .star file). Note, the names of the micrographs referred to in the .star files must match, otherwise the program will be unable to locate the original defocus information.
 Program input:
